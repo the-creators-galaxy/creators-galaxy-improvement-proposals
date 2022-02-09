@@ -26,6 +26,8 @@ The CGIP process is documented in [CGIP-1](./CGIP/cgip-1.md).
 
 [CGIP-3](./CGIP/cgip-3.md) - Creator Verifiable Credential Schema
 
+[CGIP-4](./CGIP/cgip-4.md) - Community Governance & Voting Model
+
 ## Contributors 
 
 [Paul Madsen](https://twitter.com/paulmadsen)
