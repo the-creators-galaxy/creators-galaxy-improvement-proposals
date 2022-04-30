@@ -169,7 +169,7 @@ A network of Creators Galaxy participants use the Hedera Consensus Service (HCS)
 
 ## Reference Implementation
 
-An open source implementation is under development, and coming soon.
+An open source implementation is available at [/the-creators-galaxy/hcs-governance](https://github.com/the-creators-galaxy/hcs-governance).
 
 ## Rejected Ideas
 
@@ -186,7 +186,9 @@ An open source implementation is under development, and coming soon.
 ## References 
 
 [snapshot.org](snapshot.org)
+
 [Hedera's documentation](https://docs.hedera.com)
+
 [The Creators Galaxy Whitepaper](http://creatorsgalaxyfoundation.com/whitepaper.pdf)
 
 ## Copyright
