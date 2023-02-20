@@ -20,13 +20,8 @@ The CGIP process is documented in [CGIP-1](./CGIP/cgip-1.md).
 
 ## List of CGIPs
 
-[CGIP-1](./CGIP/cgip-1.md) - CGIP Process
-
-[CGIP-2](./CGIP/cgip-2.md) - Creator Application Whitelists
-
-[CGIP-3](./CGIP/cgip-3.md) - Creator Verifiable Credential Schema
-
-[CGIP-4](./CGIP/cgip-4.md) - Community Governance & Voting Model
+* [CGIP-1](./CGIP/cgip-1.md) - The Creator’s Galaxy DAO & The Creator’s Galaxy Improvement Proposal Process
+* [CGIP-2](./CGIP/cgip-2.md) - Community Governance & Voting Model
 
 ## Contributors 
 

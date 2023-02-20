@@ -1,146 +1,186 @@
-- cgip: 2
-- title: Creator Application Whitelists
-- author: @paulatcalaxy
-- type: Standards Track 
-- category: Core 
-- status: < >
-- created: November 5/2021
-- discussions-to: 
-- updated: 
-- requires: na
-- replaces: na
-- superseded-by: 
+# CGIP-2: Community Governance & Voting Model
 
-## Abstract
+---
 
-Creators Application Whitelists allow a Creator to define a list of 3rd party applications that are 'approved' by that Creator - and so signalling to Fans the authenticity of applications on the list.
+* cgip: 2
+* title: Community Governance & Voting Model
+* author: [Director of The Creator’s Galaxy Foundation]
+* type: Standards Track
+* category: Core
+* status: Final
+* created: 2/8/2023
+* discussions-to: https://discussions.creatorsgalaxyfoundation.com/t/cgip-2-community-governance-voting-model/19
+* updated: na
+* requires: na
+* replaces: na
+* Superseded-by: na
 
-## Motivation
+---
 
-When visting a 3rd party application that claims to be selling an asset or service from a particular Creator, Fans must be able to verify the authenticity of that application, and so the asset or service.
+# Abstract
 
-One mechanism for giving Fans this confidence is to allow each Creator to manage and publish an application whitelist of approved applications. Once an application was added to a Creator's whitelist (presuming some offline business deal), Fans considering buying some asset from the corresponding Creator via that application would be able to 'query' the whitelist to determine if the application was approved.
+The Creator’s Galaxy is a community-governed social ecosystem. This CGIP-2 proposes a voting framework for The Creator’s Galaxy DAO outlined in “CGIP-1: The Creator’s Galaxy DAO & The Creator’s Galaxy Improvement Process'' by which community members can propose features, economics and enhancements of The Creator’s Galaxy protocol, subsequently cast their votes on those proposals, and thereby directly influence its evolution. This CGIP-2 should be reviewed and considered in conjunction with CGIP-1, which has been simultaneously posted at [Snapshot][link].
 
-Importantly, it must be possible for an application to be removed from a Creator's whitelist when appropriate - as determined by the Creator.
+# Motivation
 
-Each Creator will have their own Application Whitelist with potentially a unique list of approved applications - though there is likely to be much overlap.
+The vision of The Creator’s Galaxy is that the community of creators, users, and applications will govern its evolution. This CGIP proposes a framework by which participants of the community can propose new features or enhancements, and by which the broader community can vote either in favor or against such CGIP - with their vote weighted by the number of $CLXY held.
 
-## Rationale
-When building permissionless applications on blockchains, or distributed ledgers like Hedera, anyone can implement the tokens living on that ledger. Projects such as Bitclout have gone ahead and minted social tokens on behalf of celebrities without their consent. Within The Creator's Galaxy, there is a ambition to be as veriable and opt-in as possible, particularly when it comes to endorsing platforms that an individuals "fans" may wish to use. By defining an approved list of applications that a Creator has "verified" they wish their social tokens to be used within, it can bolster additional value to the the social token as a viable form of payment with customizable rewards/incenties, help transparently identify where fans can utilize those tokens, and additionally reduce potential fraud/scams of platforms non-consensually integrating a Creator's social token. 
+# Rationale
 
-## User Stories
+The governance architecture uses Hedera Consensus Service (HCS) to provide an open, transparent and provable repository/database of propositions, votes, and ballot results. As the governance topic has no submission keys, subject to optional constraints defined in a HCS topic (as described below), anyone can both submit a CGIP and/or vote on one. As the HCS messages are archived on 3rd party mirror nodes, the history of CGIPs and votes is public and auditable.
+The Creator’s Galaxy protocol will be the first ecosystem to leverage this framework for its own governance but the model is designed such that it could be adopted by other decentralized communities on Hedera.
 
-Creators
+# User Stories
 
-1. A Creator (or their delegate) will login to their admin page
-2. The Creator will navigate to a 'Manage Approved Applications' screen
-3. The Creator will be able to view the current list of approved applications, add to the list, or remove an application from the list
-4. When adding an application, the Creator will stipulate the name and address of the new application
+Proposers
 
-Fans
+1.	A Proposer wants to create a new CGIP on which the community will vote
+2.	Proposer visits vote.creatorsgalaxy.com, an IPFS CID, or runs the software locally, and indicates they wish to create a new proposition
+3.	Proposer provides necessary information to describe the CGIP and details of the ballot
+4.	Proposer signs HCS transaction to submit the proposition
+5.	Community is notified of the new proposition and its upcoming ballot details
 
-1. A Fan will be provided with the ability to view a Creators list of approved applications
-2. A fan will have the ability to determine if a particular application is approved
+Voters
 
-## Specification
+1.	A Voter becomes aware of a new CGIP and decides they wish to vote on it
+2.	When the ballot opens, Voter visits vote.creatorsgalaxy.com, an IPFS CID, or runs the database locally, and finds the CGIP.
+3.	Voter researches the previous discussions on the CGIP.
+4.	Voter signs an HCS message to cast their vote on the CGIP.
 
-A Creator's 'application whitelist' will manifest as a JSON file on Hedera's file service. It is by creating and updating this file that a Creator will manage their application whitelist. If an application is listed in a Creator's whitelist, then Fans can interpret that to mean that the application is approved to sell assets or services of the Creator.
+# Specifications
 
-It is by viewing the contents of this file (or otherwise be presented with some UI indicator of an application being there listed) that Fans will be able to determine the authenticity of applications.
+The following sections describe the CGIP voting framework
 
-### Application Whitelist Schema 
+## High Level
 
-The application whitelist is a JSON file listing the applications that have been approved by the Creator.
+The voting process will allow community members to cast votes on CGIPs, these votes weighted by their $CLXY balances.
+The sequence of steps for any particular CGIP is laid out in more detail in CGIP-1.
 
-Each entry in the list stores a name, TLD URL, and approval date for a particular application
+1.	Submitting a Live CGIP will result in:
+    * Community members being informed of the Live CGIP via multiple channels (e.g. Discord, Twitter, etc.)
+    * An HCS message will be submitted to an HCS Topic (as laid out in more detail below) to record the above Live CGIP terms with a create-ballot message. The HCS message’s consensus timestamp becomes the identifier for the Live CGIP.
+2.	Members of the ecosystem, having subscribed to the above topic or receiving notification via other channels (e.g. Twitter, Discord, in app, etc), will be made aware of the upcoming vote of the Live CGIP.
+3.	For the purposes of weighted voting, the account holder’s $CLXY balance at the moment in time which the voting window opens is considered the weighted snapshot balance for that account holder. Hedera Mirror nodes provide the balances of accounts at any time in history, and will be queried for this information when tabulating vote results.
+4.	The global configuration and/or individual ballot rules may identify accounts that may not be permitted to vote on a CGIP. The balances of these accounts will not be included when computing any required threshold quorum requirements.
+5.	For the duration of the CGIP voting window, members of the community can submit votes as cast-vote messages against the above topic. These vote messages will indicate the CGIP identifier. These vote transactions will be signed by the private key(s) of the relevant Hedera account. If an account submits multiple cast-vote messages within the voting window for a given CGIP, only the last will be counted.
+6.	Members of the community may host instances of the hcs-governance open source software to help facilitate access to the voting process.
+7.	The voting window will remain open for at least the minimum requirement specified in the HCS topic configuration, and may be lengthened further by the CGIP author. After the voting window closes, each vote will be weighted according to the $CLXY balance of the corresponding Hedera account at the time of the voting window opening.
+8.	The results of the ballot will be tallied and displayed by various software systems that can be both hosted and run independently by anyone wishing to validate the voting systems results.
 
+## Vote weighting
 
-    [
-	    {
-		    name: "Shopify",
-		    URL: "www.shopify.com",
-		    date: "14-11-2021" 
-	    },
-	    {
-		    name: "AppB",
-		    URL: "www.appb.com",
-		    date: "16-12-2021"
-	    },
-    ]
+The votes of community members will be weighted by the amount of $CLXY held within their respective Hedera accounts. Initially, the only weighting model supported will be '1 $CLXY = 1 vote', and a minimum of 10% of the tokens circulating supply will be needed to achieve quorum. 
 
-The order of entries in the list is not material.
+An account's voting weight will be the $CLXY balance across all Hedera accounts at the time when the respective ballot opens for voting.
 
-### Binding Whitelist to Creator
+Both the global configuration and ballot definitions may list accounts that are not permitted to vote. Their weighted $CLXY balance will not be taken into account when computing any required quorum threshold.
 
-It must be possible to establish that a given application whitelist (with a given Hedera File identifier) is associated with a particular Creator (as identified by their social token's token identifier). If not, a malicious application could direct a Fan to a fake application whitelist with its own name on the list - fooling the Fan into thinking the application was valid and approved by the Creator when in fact it wasn't.
+$CLXY holders voting abstain will be counted as having voted for quorum computation purposes.
 
-The Creator's social token's memo field will be used to point to the appropriate application whitelist. 
+The Hedera Mirror REST API provides a call to retrieve the balance of all accounts that hold $CLXY at a given point in time is similar to the following:
+/api/v1/tokens/0.0.859814/balances?account.balance=gt:0&order=asc&timestamp=gte:[insert ballot vote starting time here]
 
-Rather than directly specifying the file identifier within the memo field, the memo field will contain a Decentralized Identifier (DID) that itself 'points' to a JSON DID Document stored off chain (in an HCS appnet run by participants in the Creator's Galaxy). The DID Document will contain the File identifier of the application whitelist.
+## HCS Topics
 
-The sequence by which an application whitelist is resolved is as follows
+All governance messages (CGIP creation & votes) will be submitted to a single HCS governance topic.
 
+There will be no restrictions on who can submit messages to this HCS topic. However, certain accounts may be designated as curators, and only CGIPs submitted by these accounts will be considered valid.
+
+The topic will be immutable.
+
+The first message in the HCS topic shall be a define-rules message outlining the global configuration. The information in this first message may include the white-list of accounts that may submit CGIPs, a global list of accounts that may not vote on any CGIP, the minimum time required for voting windows, and the amount of time required between publishing a CGIP and the start of voting. The rules must be defined in the first message only and cannot be redefined elsewhere in the message stream. The software will reject any HCS message stream that does not place this configuration message as the first message (serial number 1).
+
+Different CGIPs will be distinguished within this single topic by a unique ballot identifier. This identifier will be the consensus timestamp corresponding to the create-ballot message defining the CGIP ballot. The software will also validate create-ballot messages against the global configuration rules. In order to be valid, a proposition must adhere to the global minimum configuration properties and be submitted by account holders residing on the ballot create enabled-list (if specified).
+
+## HCS JSON Messages
+
+There are 3 message types
+1.	define-rules
+2.	create-ballot
+3.	cast-vote
+
+Below are example JSON for each message type
+
+## Rules Definition Message
 ```
-Query Token -> 
-     Determine DID from memo field -> 
-           Resolve DID into DID Document -> 
-	         Determine application whitelist file identifier -> 
-		        Retrieve application whitelist JSON
+{
+	"type": "define-rules",
+	"title": "TCG ⸱ $CLXY",
+	"description": "The Creator's Galaxy Governance Voting Stream",
+	"tokenId": "0.0.859814",
+	"minVotingThreshold": 0.1,
+	"ineligibleAccounts": [
+		"0.0.849428", "0.0.859877", "0.0.859897", "0.0.859903", 
+		"0.0.859906", "0.0.859908", "0.0.859910", "0.0.859911"
+	],
+	"ballotCreators": ["0.0.1386458"],
+	"minimumVotingPeriod": 7,
+	"minimumStandoffPeriod": 0
+}
 ```
 
-While the DID model introduces an extra lookup, it provides a flexible integration point for the future. 
+## Create Ballot Message
+```
+{
+	"type": "create-ballot",
+	"tokenId": "0.0.859814",
+	"title": "CGIP-2 Community Governance & Voting Model",
+	"description": "https://github.com/.../cgip-4.md",
+	"discussion": "https://github.com/.../discussions",
+	"scheme": "single-choice",
+	"choices": ["Yes", "No"],
+"threshold": 0.1,
+	"ineligible": ["0.0.1386458"],
+	"startTimestamp": "1655323200.236702000",
+	"endTimestamp": "1655928000.236702000",
+}
+```
 
-As an example, we can in the future leverage the DID mechanism to bind a Verifiable Credential issued to the Creator to the social token in the same manner as for this application whitelist. 
+The consensus timestamp for this message as recorded by the ledger will become the ballot identifier for this CGIP.
 
-Additinally, the DID model allows for the location of the application whitelist to be changed to other than Hedera's file service, eg IPFS, without editing the token itself.
+## Cast Vote message
+```
+{
+        "type": "cast-vote",
+        "ballotId": "1655323200.236702000",
+        "vote": 0,
+}
+```
 
-### DID Document Schema
+If a single account casts multiple votes, only the last vote submitted during the voting window will be considered valid. The weight of the vote will still be the $CLXY balance recorded at the opening of the voting window regardless of when the vote is cast.
 
-A DID document contains a set of service endpoints. 
+## Steps to Implement
 
-We will extend the schema with a service endpoint of type 'CalaxyApplicationWhitelist'
+All required steps have been taken, pending The Creator’s Galaxy DAO approving this CGIP-2.
 
-    {
-      "service": [{
-        "id":"did:hedera:mainnet:123sjgjhdfughdiufg#application-whitelist",
-        "type": "CalaxyApplicationWhitelist", 
-        "serviceEndpoint": "0.0.12345"
-      }]
-    }
+Upon approval of this CGIP-2, the voting protocol and processes as described herein will be deemed to be the voting protocol and process for governance of The Creator’s Galaxy protocol.
 
-The serviceEndpoint carries the Hedera File identifier of the application whitelist.
+# How To Teach This
 
-## Backwards Compatibility
+A network of The Creator’s Galaxy ecosystem participants use the Hedera Consensus Service (HCS) to maintain a registry of governance ballots, and the votes of the community on those ballots - creating an open, transparent, and auditable framework for governing the evolution of the ecosystem.
+
+# Reference Implementation
+
+An open source implementation is available at GitHub [the-creators-galaxy/hcs-governance](https://github.com/the-creators-galaxy/hcs-governance).
+
+# Rejected Ideas
+
+1.	using memo fields within CryptoTransfers to cast votes on ballots
+2.	unique HCS topics for individual CGIPs
+
+# Open Issues
+
+1.	Alternative vote weighting models, e.g. quadratic, per account, etc
+2.	Flexibility in ballot durations
+3.	Should certain accounts be excluded from voting? or otherwise have their influence diminished?
+4.	How to best support other communities being able to leverage the framework, perhaps an environment config file that other communities/DAOs could easily define their "gov admin acct IDs", mirror node APIs, token IDs, etc
+
+# References
+
+* [snapshot.org](https://snapshot.org/)
+* [Hedera's documentation](https://docs.hedera.com/hedera/)
+* [The Creators Galaxy Whitepaper](https://www.creatorsgalaxyfoundation.com/whitepaper.pdf)
+
+# Copyright
 
 N/A
-
-## Security Considerations
-
-N/A
-
-## How To Teach This
-
-There exists a public list on the Hedera network. That list includes applications a Creator has verified for usage of their social tokens. There may be additional applications utilizing their social tokens beyond those defined in this list, but those included are "verified" in the practical sense. 
-
-## Reference Implementation
-
-View the Application Schema above..
-
-## Rejected Ideas
-
-Nothing has been rejected yet!
-
-## Open Issues
-
-Could we imagine building this using Verifiable Credentials issued by the Creator to each approved application attesting to that approval?
-
-How does an application prove it is on a Creator's application whitelist other than giving a Fan the ability to view the whitelist and manually compare the entries to the application's own TLD? Might the application whitelist contain DIDs, and the applications would demonstrate ownerhip of their own DID?
-
-## References 
-
-[Bitclout](https://bitclout.com)
-
-## Copyright
-
-N/A
-
