@@ -4,11 +4,11 @@
 
 * cgip: 2
 * title: Community Governance & Voting Model
-* author: [Director of The Creator’s Galaxy Foundation]
+* author: Campbell Law
 * type: Standards Track
 * category: Core
 * status: Final
-* created: 2/8/2023
+* created: 2023-2-21
 * discussions-to: https://discussions.creatorsgalaxyfoundation.com/t/cgip-2-community-governance-voting-model/19
 * updated: na
 * requires: na
@@ -19,7 +19,7 @@
 
 # Abstract
 
-The Creator’s Galaxy is a community-governed social ecosystem. This CGIP-2 proposes a voting framework for The Creator’s Galaxy DAO outlined in “CGIP-1: The Creator’s Galaxy DAO & The Creator’s Galaxy Improvement Process'' by which community members can propose features, economics and enhancements of The Creator’s Galaxy protocol, subsequently cast their votes on those proposals, and thereby directly influence its evolution. This CGIP-2 should be reviewed and considered in conjunction with CGIP-1, which has been simultaneously posted at [Snapshot][link].
+The Creator’s Galaxy is a community-governed social ecosystem. This CGIP-2 proposes a voting framework for The Creator’s Galaxy DAO outlined in “CGIP-1: The Creator’s Galaxy DAO & The Creator’s Galaxy Improvement Process'' by which community members can propose features, economics and enhancements of The Creator’s Galaxy protocol, subsequently cast their votes on those proposals, and thereby directly influence its evolution. This CGIP-2 should be reviewed and considered in conjunction with CGIP-1, which has been simultaneously posted at [CGIP-1 link](https://discussions.creatorsgalaxyfoundation.com/t/cgip-1-the-creator-s-galaxy-dao-the-creator-s-galaxy-improvement-proposal-process/18).
 
 # Motivation
 
@@ -27,7 +27,8 @@ The vision of The Creator’s Galaxy is that the community of creators, users, a
 
 # Rationale
 
-The governance architecture uses Hedera Consensus Service (HCS) to provide an open, transparent and provable repository/database of propositions, votes, and ballot results. As the governance topic has no submission keys, subject to optional constraints defined in a HCS topic (as described below), anyone can both submit a CGIP and/or vote on one. As the HCS messages are archived on 3rd party mirror nodes, the history of CGIPs and votes is public and auditable.
+The governance architecture uses [Hedera Consensus Service](https://docs.hedera.com/hedera/tutorials/consensus-service) (HCS) to provide an open, transparent and provable repository/database of propositions, votes, and ballot results. As the governance topic has no [submission keys](https://docs.hedera.com/hedera/sdks-and-apis/sdks/consensus-service/create-a-topic), subject to optional constraints defined in a HCS topic (as described below), anyone can both submit a CGIP and/or vote on one. As the HCS messages are archived on 3rd party mirror nodes, the history of CGIPs and votes is public and auditable.
+
 The Creator’s Galaxy protocol will be the first ecosystem to leverage this framework for its own governance but the model is designed such that it could be adopted by other decentralized communities on Hedera.
 
 # User Stories
@@ -35,7 +36,7 @@ The Creator’s Galaxy protocol will be the first ecosystem to leverage this fra
 Proposers
 
 1.	A Proposer wants to create a new CGIP on which the community will vote
-2.	Proposer visits vote.creatorsgalaxy.com, an IPFS CID, or runs the software locally, and indicates they wish to create a new proposition
+2.	Proposer visits [https://vote.creatorsgalaxyfoundation.com/](https://vote.creatorsgalaxyfoundation.com/), an IPFS CID, or runs the software locally, and indicates they wish to create a new proposition
 3.	Proposer provides necessary information to describe the CGIP and details of the ballot
 4.	Proposer signs HCS transaction to submit the proposition
 5.	Community is notified of the new proposition and its upcoming ballot details
@@ -43,7 +44,7 @@ Proposers
 Voters
 
 1.	A Voter becomes aware of a new CGIP and decides they wish to vote on it
-2.	When the ballot opens, Voter visits vote.creatorsgalaxy.com, an IPFS CID, or runs the database locally, and finds the CGIP.
+2.	When the ballot opens, Voter visits [https://vote.creatorsgalaxyfoundation.com/](https://vote.creatorsgalaxyfoundation.com/), an IPFS CID, or runs the database locally, and finds the CGIP.
 3.	Voter researches the previous discussions on the CGIP.
 4.	Voter signs an HCS message to cast their vote on the CGIP.
 
@@ -54,11 +55,12 @@ The following sections describe the CGIP voting framework
 ## High Level
 
 The voting process will allow community members to cast votes on CGIPs, these votes weighted by their $CLXY balances.
+
 The sequence of steps for any particular CGIP is laid out in more detail in CGIP-1.
 
 1.	Submitting a Live CGIP will result in:
-    * Community members being informed of the Live CGIP via multiple channels (e.g. Discord, Twitter, etc.)
-    * An HCS message will be submitted to an HCS Topic (as laid out in more detail below) to record the above Live CGIP terms with a create-ballot message. The HCS message’s consensus timestamp becomes the identifier for the Live CGIP.
+	* Community members being informed of the Live CGIP via multiple channels (e.g. Discord, Twitter, etc.)
+	* An HCS message will be submitted to an HCS Topic (as laid out in more detail below) to record the above Live CGIP terms with a `create-ballot` message. The HCS message’s consensus timestamp becomes the identifier for the Live CGIP.
 2.	Members of the ecosystem, having subscribed to the above topic or receiving notification via other channels (e.g. Twitter, Discord, in app, etc), will be made aware of the upcoming vote of the Live CGIP.
 3.	For the purposes of weighted voting, the account holder’s $CLXY balance at the moment in time which the voting window opens is considered the weighted snapshot balance for that account holder. Hedera Mirror nodes provide the balances of accounts at any time in history, and will be queried for this information when tabulating vote results.
 4.	The global configuration and/or individual ballot rules may identify accounts that may not be permitted to vote on a CGIP. The balances of these accounts will not be included when computing any required threshold quorum requirements.
@@ -78,7 +80,8 @@ Both the global configuration and ballot definitions may list accounts that are 
 $CLXY holders voting abstain will be counted as having voted for quorum computation purposes.
 
 The Hedera Mirror REST API provides a call to retrieve the balance of all accounts that hold $CLXY at a given point in time is similar to the following:
-/api/v1/tokens/0.0.859814/balances?account.balance=gt:0&order=asc&timestamp=gte:[insert ballot vote starting time here]
+
+`/api/v1/tokens/0.0.859814/balances?account.balance=gt:0&order=asc&timestamp=gte:[insert ballot id here]`
 
 ## HCS Topics
 
@@ -88,9 +91,9 @@ There will be no restrictions on who can submit messages to this HCS topic. Howe
 
 The topic will be immutable.
 
-The first message in the HCS topic shall be a define-rules message outlining the global configuration. The information in this first message may include the white-list of accounts that may submit CGIPs, a global list of accounts that may not vote on any CGIP, the minimum time required for voting windows, and the amount of time required between publishing a CGIP and the start of voting. The rules must be defined in the first message only and cannot be redefined elsewhere in the message stream. The software will reject any HCS message stream that does not place this configuration message as the first message (serial number 1).
+The first message in the HCS topic shall be a `define-rules` message outlining the global configuration. The information in this first message may include the white-list of accounts that may submit CGIPs, a global list of accounts that may not vote on any CGIP, the minimum time required for voting windows, and the amount of time required between publishing a CGIP and the start of voting. The rules must be defined in the first message only and cannot be redefined elsewhere in the message stream. The software will reject any HCS message stream that does not place this configuration message as the first message (serial number 1).
 
-Different CGIPs will be distinguished within this single topic by a unique ballot identifier. This identifier will be the consensus timestamp corresponding to the create-ballot message defining the CGIP ballot. The software will also validate create-ballot messages against the global configuration rules. In order to be valid, a proposition must adhere to the global minimum configuration properties and be submitted by account holders residing on the ballot create enabled-list (if specified).
+Different CGIPs will be distinguished within this single topic by a unique ballot identifier. This identifier will be the consensus timestamp corresponding to the `create-ballot` message defining the CGIP ballot. The software will also validate create-ballot messages against the global configuration rules. In order to be valid, a proposition must adhere to the global minimum configuration properties and be submitted by account holders residing on the ballot create enabled-list (if specified).
 
 ## HCS JSON Messages
 
@@ -157,11 +160,11 @@ Upon approval of this CGIP-2, the voting protocol and processes as described her
 
 # How To Teach This
 
-A network of The Creator’s Galaxy ecosystem participants use the Hedera Consensus Service (HCS) to maintain a registry of governance ballots, and the votes of the community on those ballots - creating an open, transparent, and auditable framework for governing the evolution of the ecosystem.
+A network of The Creator’s Galaxy ecosystem participants uses the Hedera Consensus Service (HCS) to maintain a registry of governance ballots, and the votes of the community on those ballots - creating an open, transparent, and auditable framework for governing the evolution of the ecosystem.
 
 # Reference Implementation
 
-An open source implementation is available at GitHub [the-creators-galaxy/hcs-governance](https://github.com/the-creators-galaxy/hcs-governance).
+An open source implementation is available at [/the-creators-galaxy/hcs-governance](https://github.com/the-creators-galaxy/hcs-governance).
 
 # Rejected Ideas
 
@@ -177,7 +180,6 @@ An open source implementation is available at GitHub [the-creators-galaxy/hcs-go
 
 # References
 
-* [snapshot.org](https://snapshot.org/)
 * [Hedera's documentation](https://docs.hedera.com/hedera/)
 * [The Creators Galaxy Whitepaper](https://www.creatorsgalaxyfoundation.com/whitepaper.pdf)
 

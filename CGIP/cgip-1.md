@@ -4,10 +4,10 @@ CGIP-1: The Creator’s Galaxy DAO & The Creator’s Galaxy Improvement Proposal
 
 * cgip: 1
 * title: The Creator’s Galaxy DAO & The Creator’s Galaxy ( Improvement Proposal Process
-author: {Director of The Creator’s Galaxy Foundation}
+author: Campbell Law
 * type: Process
 * status: Final
-* created: 2023-2-8
+* created: 2023-2-21
 * discussions-to: https://discussions.creatorsgalaxyfoundation.com/t/cgip-1-the-creator-s-galaxy-dao-the-creator-s-galaxy-improvement-proposal-process/18
 * updated: N/A
 
@@ -21,6 +21,7 @@ What is a CGIP? “CGIP” stands for “Creator's Galaxy Improvement Proposal�
 # 2. Motivation
 
 The Creator’s Galaxy Foundation is a Cayman Islands foundation company which will serve The Creator’s Galaxy DAO and be governed by it via CGIPs. The Creator’s Galaxy DAO will have the ability to submit proposals, deliberate and vote and make such proposals and ideas a reality.
+
 The goal of CGIPs is to ensure that the community determines the future of The Creator’s Galaxy ecosystem, and has a clear, easy to use process for doing so.
 
 The guiding values of The Creator’s Galaxy Foundation are:
@@ -41,8 +42,7 @@ The Creator’s Galaxy Foundation serves The Creator’s Galaxy DAO in fostering
 -	Whoever creates a CGIP is responsible for persuading and convincing others in the community and building consensus around the new proposal. 
 -	A CGIP should be technically clear and concise, and as granular as possible. Small targeted CGIPs are more likely to reach consensus and result in a reference implementation. 
 
-CGIPs are intended to be the primary mechanism for proposing new features, for collecting community input, and for documenting the design decisions that have gone
-into The Creator’s Galaxy protocol. Because CGIPs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal and associated discussion. It is the expectation and plan that the CGIP process, and the governance that it enables, will become more and more decentralized over time. 
+CGIPs are intended to be the primary mechanism for proposing new features, for collecting community input, and for documenting the design decisions that have gone into The Creator’s Galaxy protocol. Because CGIPs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal and associated discussion. It is the expectation and plan that the CGIP process, and the governance that it enables, will become more and more decentralized over time. 
 
 # 4. Specifications
 
@@ -50,7 +50,7 @@ into The Creator’s Galaxy protocol. Because CGIPs are maintained as text files
 
 There are four kinds of Creator’s Galaxy Improvement Proposals:
 
-1. **A Standards Track CGIP** describes a new feature or implementation for The Creator's Galaxy. There are three sub-categories of a Standards Track CGIP:
+1. **A Standards Track** CGIP describes a new feature or implementation for The Creator's Galaxy. There are three sub-categories of a Standards Track CGIP:
 
     a. **Core**: Core CGIPs propose changes to the technical architecture and implementations that underlie applications within The Creator's Galaxy protocol, including how the services that Hedera, or other distributed ledgers, offer are to be leveraged.
 
@@ -58,7 +58,7 @@ There are four kinds of Creator’s Galaxy Improvement Proposals:
     
     c. **Governance**: Governance CGIPs propose changes to how The Creator's Galaxy protocol is governed, including how members of the community can influence the progression of the ecosystem.
 
-2. A **Grants** CGIP is purposely used when requesting grant funding of $CLXY tokens. Notably this differs from a Standard - Economics type of CGIPs as those are intended to change how $CLXY is utilized within the network’s on-chain fees outside of grant funding.
+2. A **Grants** CGIP is purposely used when requesting grant funding of $CLXY tokens. Notably this differs from a **Standard - Economics** type of CGIPs as those are intended to change how $CLXY is utilized within the network’s on-chain fees outside of grant funding.
 
 3. An **Informational** CGIP provides general guidelines or information to the community, but does not propose a new feature. 
 
@@ -66,11 +66,11 @@ There are four kinds of Creator’s Galaxy Improvement Proposals:
 
 ## 4.2. Status Types of Proposals  
 
-1.	**Idea** - An idea that is pre-draft. This is not tracked within the CGIP Repository.
-2.	**Draft** - The first formally tracked stage of a CGIP in development. A CGIP is merged by a CGIP Editor (a community member appointed by the Stewards Council) into the repository when properly formatted. Members of the Stewards Council will by default be CGIP Editors. A Draft CGIP is open for consideration and is undergoing rapid iteration and changes.
-3.	**Review** - The author of the CGIP (“**CGIP Author**”) marks a CGIP as ready for and requesting Stewards Council Review.
+1.	**Idea** - An idea that is pre-draft.
+2.	**Draft** - The first formally tracked stage of a CGIP in development. A CGIP is merged by a CGIP Editor (a community member appointed by the Stewards Council) into a repository when properly formatted. Members of the Stewards Council will by default be CGIP Editors. A Draft CGIP is open for consideration and is undergoing rapid iteration and changes.
+3.	**Review** - The author of the CGIP (“CGIP Author”) marks a CGIP as ready for and requesting Stewards Council Review.
 4.	**Live** - A CGIP moves into this status when it is live for voting by the community.
-5.	**Final** - This CGIP represents the final standard. A Final CGIP exists in a state of finality and should only be updated to correct errata and add non-normative clarifications. It is at this point that the CGIP Author should create the item within the [hcs-governance](https://github.com/the-creators-galaxy/hcs-governance) repository (wherever that may be hosted), or by submitting the specified HCS messages to the network. 
+5.	**Final** - This CGIP represents the final standard. A Final CGIP exists in a state of finality and should only be updated to correct errata and add non-normative clarifications.
 6.	**Withdrawn** - The CGIP Author(s) have withdrawn the proposed CGIP. This state has finality and can no longer be resurrected using the prior CGIP number. If the idea is pursued at a later date it is considered a new proposal.
 
 ## 4.3. Defining participants 
@@ -79,9 +79,9 @@ The following actors in The Creator’s Galaxy may participate in the CGIP proce
 
 1. The Creator’s Galaxy Foundation's primary focus is helping govern the open-source software standards and specifications that power applications in The Creator’s Galaxy protocol, helping oversee the ecosystem’s decentralized governance. 
 
-4. 3rd party applications. The vision of The Creator's Galaxy protocol is that there will be a broad and diverse ecosystem of applications empowering the future of content creators, which can collectively participate within The Creator’s Galaxy ecosystem. These various 3rd party applications are expected to be key participants in the CGIP process as community members and contributors.
+2. 3rd party applications. The vision of The Creator's Galaxy protocol is that there will be a broad and diverse ecosystem of applications empowering the future of content creators, which can collectively participate within The Creator’s Galaxy ecosystem. These various 3rd party applications are expected to be key participants in the CGIP process as community members and contributors.
 
-5. The Creator’s Galaxy DAO. Any community member can propose new CGIPs and comment on others. Those community members that hold $CLXY tokens will be able to use those tokens when voting on decisions on CGIPs. There will be a community nominated group of at least 5 individuals comprising the Stewards Council who manage a set of multisig wallets on behalf of The Creator’s Galaxy DAO and The Creator’s Galaxy Foundation. The details of the DAO are outlined in Section 4.5 below. 
+3. The Creator’s Galaxy DAO. Any community member can propose new CGIPs and comment on others. Those community members that hold $CLXY tokens will be able to use those tokens when voting on decisions on CGIPs. There will be a community nominated group of at least 5 individuals comprising the Stewards Council who manage a set of multisig wallets on behalf of The Creator’s Galaxy DAO and The Creator’s Galaxy Foundation. The details of the DAO are outlined in Section 4.5 below. 
 
 ## 4.4. CGIP Workflow
 
@@ -89,13 +89,13 @@ These are the clearly defined, step-by-step phases a CGIP must go through in ord
 
 **Phase 1 - CGIP Idea**
 
-An idea must be created within the discussions section of [Discourse] and receive confirmation from a CGIP Editor that the proposal complies with the DAO’s guidelines before moving onto Phase 2. The individual(s) who came up with the idea/proposal will become the CGIP’s author or authors. After receiving this confirmation from a CGIP Editor, the proposal would be moved to Phase 2.
+An idea must be created within the discussions section of [Discourse (https://discussions.creatorsgalaxyfoundation.com/)](https://discussions.creatorsgalaxyfoundation.com/) and receive confirmation from a CGIP Editor that the proposal complies with the DAO’s guidelines before moving onto Phase 2. The individual(s) who came up with the idea/proposal will become the CGIP’s author or authors. After receiving this confirmation from a CGIP Editor, the proposal would be moved to Phase 2.
 
 Minimum duration of Phase 1: N/A
 
 **Phase 2 - CGIP Draft**
 
-Once a proposal idea has received confirmation from a CGIP Editor that it’s compliant with the DAO guidelines, the proposal should be updated to reflect its status as a CGIP Draft. This CGIP Draft should be added to [Discourse] in a format matching the template provided in Section 4.7 of this CGIP-1. 
+Once a proposal idea has received confirmation from a CGIP Editor that it’s compliant with the DAO guidelines, the proposal should be updated to reflect its status as a CGIP Draft. This CGIP Draft should be added to Discourse in a format matching the template to be provided by The Creator’s Galaxy Foundation as laid out in Section 4.7 of this CGIP-1. 
 
 This draft must be available for a minimum of 14 days for comments from the community. After the 14 day minimum window, the CGIP Author(s) can decide whether or not they believe the CGIP Draft has gained enough response and support from the community to move to Phase 3. 
 
@@ -113,7 +113,7 @@ The Stewards Council will review each CGIP Draft to ensure that such CGIPs:
 -	Do not directly conflict with another CGIP currently up for vote or CGIP previously approved by The Creator’s Galaxy DAO;
 -	Do not otherwise violate The Creator’s Galaxy Foundation’s bylaws or articles, any statutory requirements of Cayman Islands laws or the laws or regulations of any other applicable jurisdiction;
 
-If the CGIP Draft is approved by the Stewards Council, they or a CGIP Editor will move it to Phase 4. This is done by creating an instance on The Creator’s Galaxy voting website (vote.creatorsgalaxy.com), and as outlined in Phase 4 below. 
+If the CGIP Draft is approved by the Stewards Council, they or a CGIP Editor will move it to Phase 4. This is done by creating an instance on The Creator’s Galaxy voting [website (https://vote.creatorsgalaxyfoundation.com/)](https://vote.creatorsgalaxyfoundation.com/), and as outlined in Phase 4 below.  
 
 If the proposal fails to meet the Stewards Council requirements, they will move the proposal back to Phase 2 with comments as to why it failed to pass beyond this phase. 
 
@@ -121,9 +121,9 @@ Minimum duration of Phase 3: 7 days.
 
 **Phase 4 - Live CGIP**
 
-When a CGIP enters Phase 4, it will be added to vote.creatorsgalaxy.com by a CGIP Editor or member of the Stewards Council. Its voting window will begin 7 days after the proposal has been added, and will be live (open for voting) for 7 days. 
+When a CGIP enters Phase 4, it will be added to [https://vote.creatorsgalaxyfoundation.com/](https://vote.creatorsgalaxyfoundation.com/) by a CGIP Editor or member of the Stewards Council. Its voting window will begin 7 days after the proposal has been added, and will be live (open for voting) for 7 days.  
 
-The voting options will be “Yes” in support of the proposal, “No” not in support of the proposal, or “Abstain” which implies that a voter wishes to contribute to the proposal’s minimum voting threshold without influencing the community. After the 7 days of voting has completed (14 days in total for Phase 4), the results will be visible on vote.creatorsgalaxy.com, and the proposal will move to Phase 5.
+The voting options will be “Yes” in support of the proposal, “No” not in support of the proposal, or “Abstain” which implies that a voter wishes to contribute to the proposal’s minimum voting threshold without influencing the community. After the 7 days of voting has completed (14 days in total for Phase 4), the results will be visible on [https://vote.creatorsgalaxyfoundation.com/](https://vote.creatorsgalaxyfoundation.com/), and the proposal will move to Phase 5.
 
 Duration of Phase 4: 14 days.
 
@@ -149,20 +149,20 @@ The Creator’s Galaxy DAO will give the community the ability to steward the fu
 
 ### 4.5.1. DAO Voting requirements 
 
-The votes shall adhere to the voting specifications within CGIP-2: Community Governance & Voting Model, which has been posted simultaneously with this CGIP-1 at [link], and need to achieve a quorum of at least 10% + 1 weight, of circulating $CLXY supply, for a vote to pass.
+The votes shall adhere to the voting specifications within CGIP-2: Community Governance & Voting Model, which has been posted simultaneously with this CGIP-1 at [CGIP-2 link](https://discussions.creatorsgalaxyfoundation.com/t/cgip-2-community-governance-voting-model/19), and needs to achieve a quorum of at least 10% + 1 weight, of circulating $CLXY supply, for a vote to pass.
 
 ### 4.5.2. DAO Stewards 
 
-The community will nominate a council of at least 7 Stewards (the “**Stewards Council**”), who will collectively manage the keys associated with the treasury’s multisig in accordance with the wishes of The Creator’s Galaxy DAO. Votes and changes to the token allocations, distributions, protocol standards, etc. can be proposed by anyone, as outlined above, and will result in a community vote in accordance to the governance process laid out in this CGIP-1. The 7 (or more) Stewards will endeavor to ensure that CGIPs are legally permissible, technically possible, and other criteria as laid out in Phase 3 of the CGIP process. For the avoidance of doubt, the Stewards Council is merely an administrator of The Creator’s Galaxy DAO’s decisions – it is not intended to exercise broad discretion, nor be tasked with responsibilities or expectations beyond ensuring that CGIPs have the required qualities as detailed in Phase 3 of the CGIP process and accordingly implementing such CGIPs pursuant to the vote of The Creator’s Galaxy DAO. It will ultimately be up to the community to drive the growth and development of The Creator’s Galaxy protocol and ecosystem.
+The community will nominate a council of at least 6 Stewards (the “**Stewards Council**”), who will collectively manage the keys associated with the treasury’s multisig in accordance with the wishes of The Creator’s Galaxy DAO. Votes and changes to the token allocations, distributions, protocol standards, etc. can be proposed by anyone, as outlined above, and will result in a community vote in accordance to the governance process laid out in this CGIP-1. The 6 (or more) Stewards will endeavor to ensure that CGIPs are legally permissible, technically possible, and other criteria as laid out in Phase 3 of the CGIP process. For the avoidance of doubt, the Stewards Council is merely an administrator of The Creator’s Galaxy DAO’s decisions – it is not intended to exercise broad discretion, nor be tasked with responsibilities or expectations beyond ensuring that CGIPs have the required qualities as detailed in Phase 3 of the CGIP process and accordingly implementing such CGIPs pursuant to the vote of The Creator’s Galaxy DAO. It will ultimately be up to the community to drive the growth and development of The Creator’s Galaxy protocol and ecosystem.
 
 The initial members of the Stewards Council are:
-* Andy Kulikyan (HBAR to the Moon)
-* Ashton Addison (Crypto Coin Show)
-* Coinman the HBARbarian
-* Rahul Kothari (Reddit Crypto / Calaxy Advisor)
-* Nick the Crypto Crusader
-* Max Walker-Williams
-* Rufus Daniel (Zepzi / HBAR Foundation)
+
+* **Andy Kulikyan**: Andy Kulikyan, Founder and CEO of Citadel Wallet, has 7+ Years of experience in embedded systems development for highly critical, secure and reliable Industrial, Military and Avionic applications. He has managed and led a team of multidisciplinary engineers to build out systems from concept to production stage such as Video and Data processing systems, Head Up Displays and Cameras for Military Aircrafts such as T-45, F-16, F-18, etc. He also has experience with supply chain management, addressing component lifetime/obsolescence issues and handling vendor/customer relationships. Simultaneously, he has been highly involved in the emerging Web 3 and Crypto space with a primary focus on next generation DLT platform Hedera and the vibrant ecosystem surrounding it.
+* **Ashton Addison**: Ashton Addison is the founder of Crypto Coin Show, one of the longest standing news networks & interview shows in Web3, since 2014. He has hosted over 1,300 interviews with blockchain protocols, founders, future unicorn startups, and Web3 industry leaders. The Crypto Coin Show recently won the “Best Interview Show” in the industry at the 2022 Web3IAwards. He is also a public speaker with keynote speeches across Asia and North America. He’s also an active advisor to several blockchain companies across different networks.
+* **Max Walker-Williams**: Max Walker-Williams is the founder and owner of the Walker&Williams Group, a diverse collection of businesses from property and 5* Hotels to Child care and Technology. Max shares what he learns and his day to day life in an honest and easy to understand way on his social media channels and successful YouTube channel.
+* **Rahul Kothari**: Rahul is an engineer on Reddit’s Crypto team working on scalability and solving blockchain challenges. He previously worked at the Ethereum Foundation and was a core contributor at BlueSky - Jack Dorsey’s non profit to build decentralised social media. Rahul joined the Hedera space even before the testnet launch back in 2017 and performed a lot of work on Hedera’s smart contract service. He is also a technical advisor at Calaxy, Inc. and has co-authored a HIP.
+* **Rufus Daniel**: Rufus brings three years of experience in Web3, including time as a Technical Writer, and is currently Social Media Manager for The HBAR Foundation. He has been an active member of the Hedera ecosystem throughout this time period and brings a passion for The Creator’s Galaxy and its mission to pioneer the Web3 creator economy.
+* **Nick Crypto Crusader**: Nick, also known as NCashOfficial, is a content creator, investor, business owner and serial entrepreneur. He has amassed a large following across his social platforms, creating daily cryptocurrency content. He has created over 2,000 videos helping individuals see the value behind blockchain & distributed ledger technology. Outside of crypto, he owns & operates multiple online businesses, including a successful design agency.
 
 At a minimum of every 12 months, there will be a DAO-wide vote to elect members of the Stewards Council. A member of the Stewards Council may be removed and replaced prior to their 12-month term pursuant to the voting requirements outlined in CGIP-2. Furthermore, pursuant to the voting requirements outlined in CGIP-2, the number of members of the Stewards Council can be increased and members elected to fill such additional seats.
 
@@ -207,7 +207,7 @@ At least one author must use a GitHub username in order to be notified on change
 
 ### `discussions-to` header
 
-While a CGIP is a draft, a discussions-to header will indicate the URL where the CGIP is being discussed. Examples of places to discuss your CGIP include an issue in this repo or in a fork of this repo, the Hedera Developer Discord, or Reddit r/hashgraph.
+While a CGIP is a draft, a discussions-to header will indicate the URL where the CGIP is being discussed.
 
 No discussions-to header is necessary if the CGIP is being discussed privately with the author.
 
@@ -243,7 +243,7 @@ CGIPs may also have a superseded-by header indicating that a CGIP has been rende
 
 4. Rationale -- The rationale fleshes out the specification by describing why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages.
 
-5. User stories -- Provide a list of "user stories" to express how this feature, functionality, improvement, or tool will be used by the end user - whether that be fans or Creators within the ecosystem. This field is optional, depending on the type of proposal.
+5. User stories -- Provide a list of "user stories" to express how this feature, functionality, improvement, or tool will be used by the end user - whether that be fans or creators within the ecosystem. This field is optional, depending on the type of proposal.
 
 6. Specification -- The technical specification should describe the syntax and semantics of any new features. The specification should be detailed enough to allow competing, interoperable implementations (for at least the current Hedera ecosystem, but ideally, all web3 ecosystems).
 
@@ -251,11 +251,11 @@ CGIPs may also have a superseded-by header indicating that a CGIP has been rende
 
 8. References -- A collection of URLs used as references through the CGIP. 
 
-References to other CGIPs should follow the format CGIP-N where N is the CGIP number you are referring to. Each CGIP that is referenced in an CGIP MUST be accompanied by a relative markdown link the first time it is referenced, and MAY be accompanied by a link on subsequent references. The link MUST always be done via relative paths so that the links work in this GitHub repository, forks of this repository, the main CGIPs site, mirrors of the main CGIP site, etc. For example, you would link to this CGIP with [CGIP-1](./cgip-1.md).
+References to other CGIPs should follow the format CGIP-N where N is the CGIP number you are referring to. Each CGIP that is referenced in an CGIP MUST be accompanied by a relative markdown link the first time it is referenced, and MAY be accompanied by a link on subsequent references.
 
 Images, diagrams, and auxiliary files should be included in a subdirectory of the assets folder for that CGIP as follows: assets/cgip-N (where N is to be replaced with the CGIP number). When linking to an image in the CGIP, use relative links such as ../assets/cgip-1/image.png.
 
-9. Copyright/license -- Each new CGIP must be placed under the MIT License.
+9. Copyright/license -- Each new CGIP must be placed under the MIT License [MIT License (mit-license.org)](https://mit-license.org/).
 
 ***Each CGIP can optionally have the following items. Including these sections may increase the likelihood of a proposal’s success - ***
 
@@ -269,7 +269,7 @@ Images, diagrams, and auxiliary files should be included in a subdirectory of th
 
 14. Rejected Ideas -- Throughout the discussion of a CGIP, various ideas will be proposed which are not accepted. Those rejected ideas should be recorded along with the reasoning as to why they were rejected. This both helps record the thought process behind the final version of the CGIP as well as preventing people from bringing up the same rejected idea again in subsequent discussions.  This field is optional, depending on the type of proposal.
 
-In a way, this section can be thought of as a breakout section of the Rationale section that focuses specifically on why certain ideas were not ultimately pursued.
+    In a way, this section can be thought of as a breakout section of the Rationale section that focuses specifically on why certain ideas were not ultimately pursued.
 
 15. Open Issues -- While a CGIP is in draft, ideas can come up which warrant further discussion. Those ideas should be recorded so people know that they are being thought about but do not have a concrete resolution. This helps make sure all issues required for the CGIP to be ready for consideration are complete and reduces people duplicating prior discussions.  This field is optional, depending on the type of proposal.
 
@@ -280,31 +280,45 @@ CGIPs should be written in markdown format. An example template will be released
 
 # 5.	Steps to Implement
 
-1. Approve the CGIP process as proposed in this CGIP-1
-2. Ratify the formation of The Creator’s Galaxy Foundation
-3. Approve The Creator’s Galaxy Foundation’s governing documents (Amended & Restated Memorandum and Articles of Association + Charter, the forms of each which are attached hereto)
-4. Approve the appointment of each of the Stewards to the Stewards Council
-5. Propose a voting process and implement such process (see CGIP-2)
-6. Completed setup of the Discourse settings
-7. Approve reimbursements + ongoing costs
-    1. Initial Setup Costs of The Creator’s Galaxy Foundation and The Creator’s Galaxy DAO
-        1.	Setup Costs including domain purchases and fees, legal fees, DAO administration setup, Discourse Enterprise and setup, and misc out of pocket costs. $100,000
-    2. Ongoing costs
-        1. Supervisor, secretary and director fees: [$35K USD per annum], contracted for an indefinite term
-        2. Discourse Enterprise Account: Discussion platform to host all topics discussed by the community before formalizing into proposals. $1,500 per month, on month-to-month basis
-    3. Stewards Council Compensation
-        1. Compensation is entirely in the form of $CLXY to align incentives of members of the Stewards Council with The Creator’s Galaxy DAO.
-        2. Each Council member receives $100,000 in $CLXY for their 12-month term, subject to equal monthly vesting over the course of their term (~$8,333.33 of $CLXY/month for 12 months).
-8. Approve the below token allocations in accordance with [The Creator’s Galaxy whitepaper](https://www.creatorsgalaxyfoundation.com/whitepaper.pdf). Upon approval of this CGIP-1, each of the allocations below marked with an asterisk * will be sent to a multi-signature wallet with each of the Stewards as signatories.
+    a.  Approve the CGIP process as proposed in this CGIP-1
 
-    i. 46M to Investors
-    ii. 55M to Community Grants*
-    iii.100M for Creator Grants*
-    iv.100M for Ecosystem Grants*
-    v. 150M to Team
-    vi. 200M to Calaxy, Inc. 
-    vii. 349M for General Treasury Use*
+    b.  Ratify the formation of The Creator’s Galaxy Foundation
 
+    c.  Approve The Creator’s Galaxy Foundation’s governing documents (Amended & Restated Memorandum and Articles of Association + Charter, the forms of each which are attached hereto)
+
+    d.  Approve the appointment of each of the Stewards to the Stewards Council
+
+    e.  Propose a voting process and implement such process (see CGIP-2 at [CGIP-2 link](https://discussions.creatorsgalaxyfoundation.com/t/cgip-2-community-governance-voting-model/19))
+
+    f.  Completed setup of the Discourse settings
+
+    g.	Approve reimbursements + ongoing costs
+
+        i.	Initial Setup Costs of The Creator’s Galaxy Foundation and The Creator’s Galaxy DAO
+
+            1.	Setup Costs including domain purchases and fees, legal fees, DAO administration setup, Discourse Enterprise and setup, and misc out of pocket costs. $100,000
+
+        ii.	Ongoing costs
+        
+            1.	Supervisor, secretary and director fees: $35K USD per annum, contracted for an indefinite term
+
+            2.	Discourse Enterprise Account: Discussion platform to host all topics discussed by the community before formalizing into proposals. $300 per month, on month-to-month basis
+
+        iii.	Stewards Council Compensation
+
+            1.	Compensation is in the form of $CLXY to align incentives of members of the Stewards Council with The Creator’s Galaxy DAO.
+
+            2.	Each Council member receives $100,000 in $CLXY for their 12-month term, subject to equal monthly vesting over the course of their term (~$8,333.33 of $CLXY/month for 12 months).
+
+    h.	Approve the below token allocations in accordance with [The Creator’s Galaxy whitepaper](https://www.creatorsgalaxyfoundation.com/whitepaper.pdf). Upon approval of this CGIP-1, each of the allocations below marked with an asterisk * will be sent to a multi-signature wallet with each of the Stewards as signatories.
+
+	    i.      46M to Investors
+        ii.     55M to Community Grants*
+        iii.    100M for Creator Grants*
+        iv.     100M for Ecosystem Grants*
+        v.      150M to Team
+        vi.     200M to Calaxy, Inc. 
+        vii.    349M for General Treasury Use*
 
 # 6. References
 
