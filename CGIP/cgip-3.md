@@ -8,7 +8,7 @@
 * category: governance
 * status: stewards council review
 * created: March 20, 2024
-* discussions-to: [https://discussions.creatorsgalaxyfoundation.com/t/cgip-3-stewards-annual-vote-2024/38](https://discussions.creatorsgalaxyfoundation.com/t/cgip-3-2024-2025-stewards-proposal/38)
+* discussions-to: [https://discussions.creatorsgalaxyfoundation.com/t/cgip-3-2024-2025-stewards-proposal/38](https://discussions.creatorsgalaxyfoundation.com/t/cgip-3-2024-2025-stewards-proposal/38)
 * updated: March 20, 2024
 * requires: n/a
 * replaces: n/a
