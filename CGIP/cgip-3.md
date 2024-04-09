@@ -6,10 +6,10 @@
 * author: Cooper Kunz, Jason Fabritz
 * type: process
 * category: governance
-* status: stewards council review
+* status: live
 * created: March 20, 2024
 * discussions-to: [https://discussions.creatorsgalaxyfoundation.com/t/cgip-3-2024-2025-stewards-proposal/38](https://discussions.creatorsgalaxyfoundation.com/t/cgip-3-2024-2025-stewards-proposal/38)
-* updated: April 8, 2024
+* updated: April 9, 2024
 * requires: n/a
 * replaces: n/a
 * superseded-by: n/a
