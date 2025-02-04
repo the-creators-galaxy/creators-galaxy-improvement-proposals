@@ -74,11 +74,11 @@ Supporting Headstarter's Memejob platform is a strategic decision for TCG. The p
 
 # Steps to Implement
 
-1. Council Approves this proposal and allocate 526,692 CLXY (~$25K)  to Headstarter
+1. Council Approves this proposal and allocate 588,235 CLXY (~$25K)  to Headstarter
 2. Formalize a grant agreement with Headstarter, outlining usage expectations and deliverables.
 3. Prepare joint announcements to amplify community engagement.
 4. Begin disbursement of funds in two tranches:
-   * ~$15K CLXY for development at $0.0425 per CLXY (352,941 CLXY)
+   * ~$15K CLXY for development (352,941 CLXY)
    * ~$10K CLXY for marketing and incentives (235,294 CLXY)
 
 ## References
