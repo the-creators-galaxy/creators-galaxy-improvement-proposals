@@ -6,9 +6,9 @@
 * author: The Creators Galaxy Foundation (TCG)
 * type: Grants
 * status: Final
-* created: November 11, 2024
+* created: November 24, 2024
 * discussions-to: n/a
-* updated: January 31, 2024
+* updated: February 11, 2025
 * requires: n/a
 * replaces: n/a
 * superseded-by: n/a
@@ -21,7 +21,7 @@ Grant Allocation for Headstarter’s Memejob Meme Launch Platform
 
 # Abstract
 
-This proposal seeks approval for a **588,235 CLXY** (~$25K) grant allocation to Headstarter for the development and marketing of their Memejob meme launch platform. The funding will directly support Headstarter's efforts to provide a socially-focused, retail-facing tool for the Hedera ecosystem. The grant aligns with The Creators Galaxy Foundation’s mission to foster 
+This proposal seeks approval for a **800,000 CLXY** (~$25K) grant allocation to Headstarter for the development and marketing of their Memejob meme launch platform. The funding will directly support Headstarter's efforts to provide a socially-focused, retail-facing tool for the Hedera ecosystem. The grant aligns with The Creators Galaxy Foundation’s mission to foster 
 community engagement and ecosystem growth.
 
 # Motivation
@@ -74,12 +74,12 @@ Supporting Headstarter's Memejob platform is a strategic decision for TCG. The p
 
 # Steps to Implement
 
-1. Council Approves this proposal and allocate 588,235 CLXY (~$25K)  to Headstarter
+1. Council Approves this proposal and allocate 800,000 CLXY (~$25K)  to Headstarter
 2. Formalize a grant agreement with Headstarter, outlining usage expectations and deliverables.
 3. Prepare joint announcements to amplify community engagement.
 4. Begin disbursement of funds in two tranches:
-   * ~$15K CLXY for development (352,941 CLXY)
-   * ~$10K CLXY for marketing and incentives (235,294 CLXY)
+   * ~$15K CLXY for development (480,000 CLXY)
+   * ~$10K CLXY for marketing and incentives (320,000 CLXY)
 
 ## References
 
